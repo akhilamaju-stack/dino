@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome Dino Runner Game</title>
+  <meta name="description" content="A classic Chrome Dino style runner game built with HTML, CSS, and JavaScript.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="game-header">
+      <h1 class="game-title">DINO RUNNER</h1>
+      <p class="subtitle">Press <kbd>Space</kbd>, <kbd>↑</kbd>, or tap/click screen to Jump</p>
+    </header>
+
+    <main class="game-card">
+      <div class="scoreboard">
+        <div class="score-badge">
+          <span class="label">HI</span>
+          <span id="high-score" class="val">00000</span>
+        </div>
+        <div class="score-badge current">
+          <span class="label">SCORE</span>
+          <span id="score" class="val">00000</span>
+        </div>
+      </div>
+
+      <div class="canvas-wrapper">
+        <canvas id="gameCanvas" width="800" height="260"></canvas>
+        
+        <!-- Game Over Overlay -->
+        <div id="game-over-modal" class="overlay hidden">
+          <div class="overlay-content">
+            <h2 class="game-over-text">GAME OVER</h2>
+            <p class="final-score-text">Score: <span id="final-score">0</span></p>
+            <button id="restart-btn" class="btn-restart" type="button">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+              </svg>
+              PLAY AGAIN
+            </button>
+            <p class="hint-text">Press <kbd>Space</kbd> or <kbd>Enter</kbd> to restart</p>
+          </div>
+        </div>
+
+        <!-- Start Overlay -->
+        <div id="start-modal" class="overlay">
+          <div class="overlay-content">
+            <div class="dino-avatar">🦖</div>
+            <h2>READY TO RUN?</h2>
+            <button id="start-btn" class="btn-restart start-btn" type="button">START GAME</button>
+            <p class="hint-text">or press <kbd>Space</kbd></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-controls-mobile">
+        <button id="jump-touch-btn" class="touch-control-btn" type="button">
+          <span>JUMP</span>
+        </button>
+      </div>
+    </main>
+
+    <footer class="game-footer">
+      <span>Avoid cacti and pterodactyls • Speed increases over time!</span>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
